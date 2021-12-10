@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/screens/product_detail_screen.dart';
+import 'package:shop_app/screens/products_overview_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,12 +16,14 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
-        ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Shop App"),
-          ),
-          body: const Center(child: Text('Wellcome to Shop App')),
-        ));
+          fontFamily: 'Lato'
+        ).copyWith(
+            colorScheme:
+                ThemeData().colorScheme.copyWith(secondary: Colors.deepOrange)),
+        home: ProductsOverviewScreen(),
+        routes: {
+          ProductDetailScreen.routeName: (context) => ProductDetailScreen()
+        },
+        );
   }
 }
